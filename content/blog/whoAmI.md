@@ -1,3 +1,10 @@
+---
+title: About me
+date: 2023-09-13
+tags:
+  - blog
+---
+
 ## Hi
 
 My name is Tomasz. I've been interested in computers for as long as I can remember. When I finished my fifth grade in primary school, I went to an event and wrote code for robots made of Lego. I've fallen in love with programming ever since.
