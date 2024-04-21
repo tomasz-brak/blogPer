@@ -7,17 +7,22 @@
 		<meta name="description" content="{{ description or metadata.description }}">
 
 		{#- Atom and JSON feeds included by default #}
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml"
+			title="{{ metadata.title }}">
+		<link rel="alternate" href="/feed/feed.json" type="application/json"
+			title="{{ metadata.title }}">
 
-		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
+		{#- Uncomment this if you’d like folks to know that you used Eleventy to build
+		your site! #}
 		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
 
 		{#-
 		CSS bundles are provided via the `eleventy-plugin-bundle` plugin:
 		1. You can add to them using `{% css %}`
-		2. You can get from them using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
-		3. You can do the same for JS: {% js %}{% endjs %} and <script>{% getBundle "js" %}</script>
+		2. You can get from them using `{% getBundle "css" %}` or `{% getBundleFileUrl
+		"css" %}`
+		3. You can do the same for JS: {% js %}{% endjs %} and
+		<script>{% getBundle "js" %}</script>
 		4. Learn more: https://github.com/11ty/eleventy-plugin-bundle
 		#}
 
@@ -26,11 +31,14 @@
 		{#- Add the contents of a file to the bundle #}
 		{%- css %}{% include "public/css/index.css" %}{% endcss %}
 		{#- Or add from node_modules #}
-		{# {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} #}
+		{# {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{%
+		endcss %} #}
 
-		{#- Render the CSS bundle using Inlined CSS (for the fastest site performance in production) #}
+		{#- Render the CSS bundle using Inlined CSS (for the fastest site performance
+		in production) #}
 		<style>{% getBundle "css" %}</style>
-		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
+		{#- Renders the CSS bundle using a separate file, if you can't set CSP
+		directive style-src: 'unsafe-inline' #}
 		{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
 	</head>
 	<body>
@@ -39,13 +47,16 @@
 		<header>
 			<a href="/" class="home-link">{{ metadata.title }}</a>
 
-			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+			{#- Read more about `eleventy-navigation` at
+			https://www.11ty.dev/docs/plugins/navigation/ #}
 			<nav>
 				<h2 class="visually-hidden">Top level navigation menu</h2>
 				<ul class="nav">
-				{%- for entry in collections.all | eleventyNavigation %}
-					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-				{%- endfor %}
+					{%- for entry in collections.all | eleventyNavigation %}
+					<li class="nav-item"><a href="{{ entry.url }}" {% if entry.url == page.url
+							%} aria-current="page" {% endif %}>{{ entry.title }}</a></li>
+					{%- endfor %}
+					<li class="nav-item"><a href="/demos">Demos</a></li>
 				</ul>
 			</nav>
 		</header>

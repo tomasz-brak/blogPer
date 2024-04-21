@@ -1,0 +1,12 @@
+---
+layout: layouts/demo.njk
+title: Basic Cube
+---
+{% block head %}
+<script>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("/wasm/basic.wasm"), go.importObject).then((result) => {
+        go.run(result.instance);
+    });
+</script>
+{% endblock head %}

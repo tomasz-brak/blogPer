@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tomasz's Blog - {{ title or metadata.title }}</title>
+        <meta charset="utf-8" />
+        <script src="/js/wasm_go.js"></script>
+        {% block head %}
+
+        {% endblock %}
+        <style>
+            .no-colide{
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 999;
+                color: white;
+                font-weight: 900;
+            }
+        </style>
+    </head>
+
+    <body>
+        <a class="no-colide" href="/demos">Back to demo screen</a>
+        {{content | safe}}
+    </body>
+</html>

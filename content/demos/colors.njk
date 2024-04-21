@@ -1,0 +1,12 @@
+---
+layout: layouts/demo.njk
+title: Colorful 3D objects
+---
+{% block head %}
+<script>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("/wasm/colors.wasm"), go.importObject).then((result) => {
+        go.run(result.instance);
+    });
+</script>
+{% endblock head %}
